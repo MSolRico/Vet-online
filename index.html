@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vet online</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" media="print" onload="this.media='all';">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"></noscript>
+</head>
+<body>
+    <!-- Navegacion -->
+    <nav class="navbar">
+        <div class="container">
+          <a href="#home" aria-label="Ir al inicio">
+            <img src="Fotos/logo.webp" alt="" class="logo">
+          </a>
+            <div class="nav-links">
+                <a href="#formulario">Lorem</a>
+                <a href="#contact">Lorem</a>
+            </div>
+            <div class="menu-toggle">         <!-- Responsive -->
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Seccion Hero -->
+    <section id="home" class="hero">
+          <h1 class="hero-titulo">Bienvenidos!</h1>
+          <img src='Fotos/imagen.webp' alt="Animalitos" class="hero-img">            
+    </section>
+
+    <!-- Seccion formulario -->
+    <section id="formulario" class="formulario">
+      <div class="container">
+        <div class="titulo-form">
+        <h2><span class="decorado">Ma</span>scotas</h2>
+        <button class="btn-login" onclick="toggleLogin()">INGRESAR MASCOTA</button>
+        </div>
+        <!-- Formulario -->
+        <form class="contact-form" action="https://formspree.io/f/mwpogybl" method="post">
+          <div>
+          <label for="tipo">Mascota*</label>
+          <div class="radio-group">
+             <label class="radio-option">
+             <input type="radio" name="mascota" value="Gato" required>Gato
+            </label>
+            <label class="radio-option">
+            <input type="radio" name="mascota" value="Perro">Perro
+            </label>
+          </div>
+          </div>
+          <div class="form-group">
+            <label for="nombre">Nombre*</label><br>
+            <input type="text" id="nombre" name="nombre" required><br><br>
+          </div>
+          <div class="form-group">
+            <label for="apodo">Apodo*</label><br>
+            <input type="text" id="apodo" name="apodo" required><br><br>
+          </div>
+          <div class="form-group">
+            <label for="edad">Edad aproximada*</label><br>
+            <input type="number" id="edad" name="edad" min="0" required><br><br>
+          </div>
+          <div class="form-group">
+            <label for="sexo">Sexo</label><br>
+            <input type="text" id="sexo" name="sexo">
+            </select><br><br>
+          </div>
+          <div class="form-group">
+            <label for="descripcion">Descripción física*</label><br>
+            <textarea id="descripcion" name="descripcion" required></textarea><br><br>
+          </div>
+          <div class="form-group">
+            <label for="color">Características</label><br>
+            <select id="color" name="color" required>
+              <option value="">Color principal</option>
+              <option value="Negro">Negro</option>
+              <option value="Blanco">Blanco</option>
+              <option value="Marrón">Marrón</option>
+              <option value="Gris">Gris</option>
+              <option value="Atigrado">Atigrado</option>
+              <option value="Otro">Otro</option>
+            </select><br><br>
+          </div>
+          <div class="form-group">
+            <br><br><input type="text" placeholder="Ingresar característica" id="caracteristica" name="caracteristica"><br><br>
+          </div><div class="form-group">
+            <label for="fotos">Fotos</label><br>
+            <input type="file" id="fotos" name="fotos[]" accept="image/*" multiple><br><br>
+          </div>
+          <div class="btn-container">
+            <p>Los campos marcados con (*) son obligatorios</p>
+            <button type="submit" class="btn">GUARDAR</button>
+          </div>
+          </form>
+          </div>
+    </section>
+
+<!-- Log in -->
+ <div class="login-popup" id="loginPopup">
+  <form class="login-form">
+    <h3>Iniciar sesión</h3>
+    <label for="usuario">Usuario</label>
+    <input type="text" id="usuario" required>
+
+    <label for="contrasena">Contraseña</label>
+    <input type="password" id="contrasena" required>
+
+    <button type="submit" class="btn">Ingresar</button>
+  </form>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+  <section id="contact" class="contact">
+    <div class="container">
+      <h2 class="footer-title">Con<span class="footer-decorado">tac</span>tanos</h2>
+      <div class="footer-content">
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh<br>
+euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad<br>
+minim veniam, quis nostrud exerci tation ullamcorper suscipit</p>
+        <!-- Información de contacto -->
+        <div class="contact-todos">
+          <div class="contact-item">
+            <img src="Fotos/tel.svg" alt="icono telefono">
+          <div class="contact-text">
+            <h3>Telefono</h3>
+            <p>+54 9 11 5162 0516</p>
+          </div>
+          </div>
+          <div class="contact-item">
+            <img src="Fotos/mail.svg" alt="icono mail">
+          <div class="contact-text">
+            <h3>Mail</h3>
+            <p>info@vetonline.com</p>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="footer-bottom">
+    <p>Copyright &copy; 2021. Todos los derechos reservados. Realizado por Think B</p>
+  </div>
+</footer>
+
+    <!-- Modal y script van al final del body -->
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                // Close mobile menu if open
+                document.querySelector('.nav-links').classList.remove('active');
+            });
+        });
+
+        function toggleLogin() {
+    const popup = document.getElementById("loginPopup");
+    popup.style.display = popup.style.display === "flex" ? "none" : "flex";
+  }
+
+  // Cerrar al hacer clic afuera
+  window.addEventListener("click", function(e) {
+    const popup = document.getElementById("loginPopup");
+    if (e.target === popup) {
+      popup.style.display = "none";
+    }
+  });
+    </script>
+</body>
+</html>
