@@ -175,9 +175,10 @@ h2{
     border-radius: 15px;
     box-shadow: var(--box-shadow);
     max-width: 1200px;
+    width: 100%;
     margin: 50px auto;
     display: grid;
-    grid-template-columns: repeat(3, minmax(250px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 25px;
     font-family: inherit;
     margin-bottom: 200px;
@@ -186,6 +187,7 @@ h2{
 .form-group{
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
 
 .radio-option input[type="radio"] {
@@ -216,6 +218,8 @@ h2{
     border: 1px solid #ccc;  
     background-color: var(--back-color); 
     font-family: inherit;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .btn-container {
@@ -297,6 +301,7 @@ h2{
     background-image: url("Fotos/footer-bg-cropped.svg");
     background-size: cover;
     background-repeat: no-repeat;
+    background-position: center;
     color: white;
     width: 100%;
     text-align: center;
@@ -375,12 +380,11 @@ h2{
   }
 
   .hero-titulo {
-    font-size: 2.5rem;
-    top: 15%;
+    font-size: 3rem;
   }
 
   .contact-form {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr) !important;
   }
 
   .btn-container {
@@ -406,31 +410,38 @@ h2{
   }
 
   .nav-links {
+    display: none;
     flex-direction: column;
-    gap: 10px;
-    margin-top: 10px;
+    width: 100%;
+    background-color: var(--primary-color);
+    padding: 10px 0;
   }
 
+  .nav-links.active {
+    display: flex;
+  }
+    
+  .menu-toggle {
+    display: block;
+  }
+
+  .menu-toggle.open i::before {
+  content: "\f00d";
+  }
+    
   .hero-titulo {
-    font-size: 2rem;
-    top: 10%;
-    padding: 0 10px;
+    font-size: 2.5rem;
+    padding-top: 50px;
   }
 
   h2 {
     font-size: 2rem;
-    text-align: center;
   }
 
   .titulo-form {
     flex-direction: column;
     align-items: flex-start;
     gap: 10px;
-  }
-
-  .contact-form {
-    grid-template-columns: 1fr;
-    padding: 20px;
   }
 
   .btn {
@@ -440,7 +451,13 @@ h2{
 
   .btn-container {
     padding: 0;
+    grid-column: span 1 !important;
     align-items: center;
+  }
+
+  .contact-form .form-group {
+    grid-column: span 1 !important;
+    width: 100%;
   }
 
   .login-form {
@@ -473,7 +490,11 @@ h2{
 
 @media (max-width: 480px) {
   .hero-titulo {
-    font-size: 1.6rem;
+    font-size: 2rem;
+  }
+
+  h2{
+    font-size: 1.5rem;
   }
 
   .btn-login {
@@ -486,6 +507,10 @@ h2{
   .btn {
     padding: 12px 0;
     font-size: 1rem;
+  }
+
+   .contact-form {
+    grid-template-columns: 1fr !important;
   }
 
   .form-group label {

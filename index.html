@@ -150,12 +150,15 @@ minim veniam, quis nostrud exerci tation ullamcorper suscipit</p>
     <!-- Modal y script van al final del body -->
     <script>
         // Mobile menu toggle
-        const menuToggle = document.querySelector('.menu-toggle');
-        const navLinks = document.querySelector('.nav-links');
+        document.addEventListener("DOMContentLoaded", function () {
+    const toggle = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelector(".nav-links");
 
-        menuToggle.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-        });
+    toggle.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+      toggle.classList.toggle("open");
+    });
+  });
 
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
